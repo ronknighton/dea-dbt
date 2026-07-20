@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_walmart__stores
+    columns:
+      - name: store_id
+        tests: [not_null, unique]
+
+  - name: stg_walmart__department
+    columns:
+      - name: store_id
+        tests: [not_null]
+      - name: dept_id
+        tests: [not_null]
+      - name: sales_date
+        tests: [not_null]
+      - name: weekly_sales
+        tests: [not_null]
+
+  - name: stg_walmart__fact
+    columns:
+      - name: store_id
+        tests: [not_null]
+      - name: sales_date
+        tests: [not_null]

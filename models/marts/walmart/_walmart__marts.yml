@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: dim_date
+    columns:
+      - name: date_id
+        tests: [not_null, unique]
+
+  - name: dim_store
+    columns:
+      - name: store_id
+        tests: [not_null]
+      - name: dept_id
+        tests: [not_null]
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [store_id, dept_id]
+
+  - name: fact_walmart_sales
+    columns:
+      - name: date_id
+        tests:
+          - not_null
+  
