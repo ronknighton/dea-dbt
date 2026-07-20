@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: walmart_raw
+    database: walmart_db
+    schema: raw
+    tables:
+      - name: stores
+      - name: department
+      - name: fact
